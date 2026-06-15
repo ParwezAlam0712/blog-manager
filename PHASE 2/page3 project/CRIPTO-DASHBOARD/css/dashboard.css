@@ -31,5 +31,74 @@ body {
 
     margin-top: 20px;
 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*
+==================================
+LOADER CONTAINER
+==================================
+
+Is class se spinner ka size aur shape banega.
+
+50px × 50px circular loader.
+
+border-top blue rakha hai taki
+rotation clearly visible ho.
+*/
+
+.loader {
+
+    width: 50px;
+
+    height: 50px;
+
+    border: 5px solid #ddd;
+
+    border-top: 5px solid #007BFF;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+    margin: 20px auto;
+}
+
+/*
+==================================
+HIDE ELEMENT
+==================================
+
+Default me loader visible nahi hoga.
+
+JS jab chahega tab hidden class remove karega.
+*/
+
+.hidden {
+
+    display: none;
+}
+
+/*
+==================================
+SPINNER ANIMATION
+==================================
+
+0 degree se 360 degree tak
+continuous rotation.
+
+1 second me 1 full rotation.
+*/
+
+@keyframes spin {
+
+    0% {
+
+        transform: rotate(0deg);
+    }
+
+    100% {
+
+        transform: rotate(360deg);
+    }
 }
