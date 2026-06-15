@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoDash</title>
 
-    <link rel="stylesheet" href="../css/dashboard.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoDash</title>
+
+  <link rel="stylesheet" href="../css/dashboard.css">
 </head>
+
 <body>
 
-    <main class="dashboard">
+  <main class="dashboard">
 
-        <h1>CryptoDash</h1>
+    <h1>CryptoDash</h1>
 
-        <input
-            type="text"
-            id="search"
-            placeholder="Search Bitcoin, Ethereum..."
-        >
+    <input type="text" id="search" placeholder="Search Bitcoin, Ethereum...">
 
-        <div id="results"></div>
+    <div id="results"></div>
 
-        <section id="favorites">
-            <h2>My Favorites</h2>
+    <section id="favorites">
+      <h2>My Favorites</h2>
 
-            <ul id="favList"></ul>
-        </section>
+      <ul id="favList"></ul>
+    </section>
 
-        <canvas id="priceChart"></canvas>
+    <canvas id="priceChart"></canvas>
 
-    </main>
+  </main>
 
-    <script type="module" src="../js/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
 
 </body>
+
 </html>
