@@ -59,19 +59,35 @@ function renderCoin(data) {
 */
 async function loadCoin(coin = "bitcoin") {
 
+    /*
+    Spinner Show
+    */
+
+    loader.classList.remove("hidden");
+
     try {
 
-        const data = await fetchCoin(coin);
+        const data =
+            await fetchCoin(coin);
 
         renderCoin(data);
 
         await renderChart(coin);
+
     } catch (error) {
 
         results.innerHTML =
             `<p class="error">Coin Not Found</p>`;
 
         console.error(error);
+
+    } finally {
+
+        /*
+        Spinner Hide
+        */
+
+        loader.classList.add("hidden");
     }
 }
 
