@@ -7,8 +7,8 @@ import { loadFavorites, saveFavorite }
 
 const results = document.getElementById("results");
 const search = document.getElementById("search");
-const favList =
-    document.getElementById("favList");
+const favList = document.getElementById("favList");
+const loader = document.getElementById("loader");
 
 let chart;
 /*
