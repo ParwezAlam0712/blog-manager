@@ -1,4 +1,7 @@
-import { fetchCoin } from "./api.js";
+import {
+    fetchCoin,
+    fetchHistory
+} from "./api.js";
 import { loadFavorites, saveFavorite }
     from "./utils.js";
 
@@ -6,6 +9,8 @@ const results = document.getElementById("results");
 const search = document.getElementById("search");
 const favList =
     document.getElementById("favList");
+
+let chart;
 /*
   Coin Render Function
 */
@@ -28,6 +33,11 @@ function renderCoin(data) {
                 24h Change:
                 ${data.market_data.price_change_percentage_24h}%
             </p>
+
+            <p>
+    Market Cap:
+    $${data.market_data.market_cap.usd.toLocaleString()}
+</p>
 
             <button id="favBtn">
              Add To Favorites
@@ -55,6 +65,7 @@ async function loadCoin(coin = "bitcoin") {
 
         renderCoin(data);
 
+        await renderChart(coin);
     } catch (error) {
 
         results.innerHTML =
@@ -77,6 +88,47 @@ function renderFavorites() {
             )
             .join("");
 }
+
+async function renderChart(coin) {
+
+    const history =
+        await fetchHistory(coin);
+
+    const ctx =
+        document
+            .getElementById("priceChart")
+            .getContext("2d");
+
+    if (chart) {
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
+
+        type: "line",
+
+        data: {
+
+            labels:
+                history.prices.map(
+                    p =>
+                        new Date(p[0])
+                            .toLocaleDateString()
+                ),
+
+            datasets: [{
+
+                label:
+                    `${coin} Price`,
+
+                data:
+                    history.prices.map(
+                        p => p[1]
+                    )
+            }]
+        }
+    });
+}
 /*
   Search Event
 */
@@ -98,4 +150,3 @@ search.addEventListener("keypress", async (event) => {
 */
 loadCoin();
 renderFavorites();
-   
