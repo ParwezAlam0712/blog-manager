@@ -179,11 +179,11 @@ renderFavorites();
 
 /*
 ==================================
-DARK MODE TOGGLE
+DARK MODE TOGGLE + SAVE
 ==================================
 
-Button click hote hi
-dark-mode class add/remove hogi.
+Theme change karne ke saath
+LocalStorage me bhi save karega.
 */
 
 themeToggle.addEventListener(
@@ -193,5 +193,42 @@ themeToggle.addEventListener(
         document.body
             .classList
             .toggle("dark-mode");
+
+        /*
+        Check current theme
+        */
+
+        const isDarkMode =
+            document.body
+                .classList
+                .contains("dark-mode");
+
+        /*
+        Save theme
+        */
+
+        localStorage.setItem(
+            "darkMode",
+            isDarkMode
+        );
     }
 );
+
+/*
+==================================
+RESTORE SAVED THEME
+==================================
+
+Page load hote hi
+saved theme apply hogi.
+*/
+
+const savedTheme =
+    localStorage.getItem("darkMode");
+
+if (savedTheme === "true") {
+
+    document.body
+        .classList
+        .add("dark-mode");
+}
