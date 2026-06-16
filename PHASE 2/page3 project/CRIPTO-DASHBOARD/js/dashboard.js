@@ -1,17 +1,16 @@
 /*
 ==================================
-API IMPORTS
+ISSE KYA HOGA ?
 ==================================
 
-fetchCoin       -> Single coin data
-fetchHistory    -> 7 day chart data
-fetchMarketCoins-> Top gainers/losers data
+Global market data bhi import hogi.
 */
 
 import {
     fetchCoin,
     fetchHistory,
-    fetchMarketCoins
+    fetchMarketCoins,
+    fetchGlobalData
 } from "./api.js";
 
 import { loadFavorites, saveFavorite }
@@ -49,6 +48,26 @@ const gainersList =
 
 const losersList =
     document.getElementById("losersList");
+
+/*
+==================================
+MARKET STATS ELEMENTS
+==================================
+
+Stats cards ko access karne ke liye.
+*/
+
+const marketCap =
+    document.getElementById("marketCap");
+
+const volume =
+    document.getElementById("volume");
+
+const btcDominance =
+    document.getElementById("btcDominance");
+
+const fearGreed =
+    document.getElementById("fearGreed");
 
 
 /*
@@ -145,6 +164,60 @@ function renderFavorites() {
             .join("");
 }
 
+/*
+==================================
+LIVE MARKET STATS
+==================================
+
+Market overview cards fill karega.
+*/
+
+async function renderMarketStats() {
+
+    try {
+
+        const data =
+            await fetchGlobalData();
+
+        marketCap.textContent =
+            "$" +
+            Math.round(
+                data.data.total_market_cap.usd /
+                1000000000000
+            ) +
+            " Trillion";
+
+        volume.textContent =
+            "$" +
+            Math.round(
+                data.data.total_volume.usd /
+                1000000000
+            ) +
+            " Billion";
+
+        btcDominance.textContent =
+            data.data.market_cap_percentage
+                .btc
+                .toFixed(2) + "%";
+
+        /*
+        Temporary value
+
+        Later API se live
+        Fear & Greed laayenge.
+        */
+
+        fearGreed.textContent =
+            "72";
+
+    } catch (error) {
+
+        console.error(
+            "Stats Error",
+            error
+        );
+    }
+}
 async function renderChart(coin) {
 
     const history =
@@ -294,6 +367,15 @@ search.addEventListener("keypress", async (event) => {
 loadCoin();
 renderFavorites();
 
+/*
+==================================
+LOAD DASHBOARD DATA
+==================================
+*/
+
+renderMarketWidgets();
+
+renderMarketStats();
 /*
 ==================================
 DARK MODE TOGGLE + SAVE
