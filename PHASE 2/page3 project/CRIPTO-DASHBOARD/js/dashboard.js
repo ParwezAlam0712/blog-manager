@@ -95,6 +95,8 @@ const savePortfolioBtn =
 const portfolioValue =
     document.getElementById("portfolioValue");
 
+const resetPortfolioBtn =
+    document.getElementById("resetPortfolio");
 
 /*
   Coin Render Function
@@ -217,7 +219,7 @@ async function renderTopCoins() {
     const coins =
         await fetchMarketCoins();
 
-        console.log(coins);
+    console.log(coins);
 
     topCoins.innerHTML =
         coins
@@ -393,6 +395,21 @@ function savePortfolio() {
         "portfolio",
         JSON.stringify(portfolio)
     );
+}
+
+function resetPortfolio() {
+
+    localStorage.removeItem("portfolio");
+
+    btcQty.value = "";
+    ethQty.value = "";
+
+    portfolioValue.textContent =
+        "Total Value: $0";
+
+    if (portfolioChart) {
+        portfolioChart.destroy();
+    }
 }
 
 /*
@@ -732,6 +749,11 @@ savePortfolioBtn.addEventListener(
             "Portfolio Saved Successfully"
         );
     }
+);
+
+resetPortfolioBtn.addEventListener(
+    "click",
+    resetPortfolio
 );
 
 function renderPortfolioChart(btcQty, ethQty) {
