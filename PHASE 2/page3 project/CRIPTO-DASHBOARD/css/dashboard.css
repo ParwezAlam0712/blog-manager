@@ -1,172 +1,339 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
+/*
+=================================================
+GLOBAL RESET
+=================================================
 
-.dashboard {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
+ISSE KYA HOGA ?
 
-#search {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-}
+Browser ke default margins aur
+padding remove ho jayenge.
+*/
 
-#results {
-    margin-top: 20px;
-}
+* {
 
-#favorites {
-    margin-top: 30px;
-}
+    margin: 0;
 
-.card {
-    background: white;
-    padding: 20px;
+    padding: 0;
 
-    border-radius: 10px;
-
-    margin-top: 20px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 /*
-==================================
-LOADER CONTAINER
-==================================
+=================================================
+BODY
+=================================================
 
-Is class se spinner ka size aur shape banega.
+ISSE KYA HOGA ?
 
-50px × 50px circular loader.
+Pure dashboard ko dark fintech
+look milega.
+*/
 
-border-top blue rakha hai taki
-rotation clearly visible ho.
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #0f172a;
+
+    color: white;
+
+    display: flex;
+
+    min-height: 100vh;
+}
+
+/*
+=================================================
+SIDEBAR
+=================================================
+
+ISSE KYA HOGA ?
+
+Left navigation panel banega.
+*/
+
+.sidebar {
+
+    width: 250px;
+
+    background: #111827;
+
+    padding: 25px;
+
+    border-right: 1px solid #1f2937;
+}
+
+.sidebar h2 {
+
+    margin-bottom: 30px;
+
+    color: #38bdf8;
+}
+
+.sidebar ul {
+
+    list-style: none;
+}
+
+.sidebar li {
+
+    padding: 12px 0;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.sidebar li:hover {
+
+    color: #38bdf8;
+}
+
+/*
+=================================================
+MAIN CONTENT
+=================================================
+
+ISSE KYA HOGA ?
+
+Dashboard ka center area.
+*/
+
+.main-content {
+
+    flex: 1;
+
+    padding: 25px;
+}
+
+/*
+=================================================
+TOPBAR
+=================================================
+
+ISSE KYA HOGA ?
+
+Search aur dark mode button
+ek line me aa jayenge.
+*/
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+#search {
+
+    width: 70%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    outline: none;
+
+    background: #1e293b;
+
+    color: white;
+}
+
+#themeToggle {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #38bdf8;
+
+    color: black;
+
+    cursor: pointer;
+}
+
+/*
+=================================================
+STATS CARDS
+=================================================
+
+ISSE KYA HOGA ?
+
+Top analytics cards banenge.
+*/
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    border: 1px solid #334155;
+}
+
+/*
+=================================================
+CHART SECTION
+=================================================
+
+ISSE KYA HOGA ?
+
+Chart ko proper area milega.
+*/
+
+.chart-section {
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+}
+
+/*
+=================================================
+RESULT CARD
+=================================================
+
+ISSE KYA HOGA ?
+
+Coin details modern card me
+show hongi.
+*/
+
+.card {
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-top: 20px;
+}
+
+/*
+=================================================
+RIGHT PANEL
+=================================================
+
+ISSE KYA HOGA ?
+
+Watchlist aur movers
+right side me show honge.
+*/
+
+.right-panel {
+
+    width: 300px;
+
+    background: #111827;
+
+    padding: 25px;
+
+    border-left: 1px solid #1f2937;
+}
+
+.right-panel h3 {
+
+    margin-bottom: 15px;
+
+    color: #38bdf8;
+}
+
+.right-panel ul {
+
+    list-style: none;
+
+    margin-bottom: 25px;
+}
+
+.right-panel li {
+
+    padding: 10px;
+
+    background: #1e293b;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+}
+
+/*
+=================================================
+LOADER
+=================================================
+
+ISSE KYA HOGA ?
+
+Loading spinner center me dikhega.
 */
 
 .loader {
 
-    width: 50px;
+    position: fixed;
 
-    height: 50px;
+    top: 50%;
+
+    left: 50%;
+
+    width: 60px;
+
+    height: 60px;
 
     border: 5px solid #ddd;
 
-    border-top: 5px solid #007BFF;
+    border-top: 5px solid #38bdf8;
 
     border-radius: 50%;
 
     animation: spin 1s linear infinite;
-
-    margin: 20px auto;
 }
-
-/*
-==================================
-HIDE ELEMENT
-==================================
-
-Default me loader visible nahi hoga.
-
-JS jab chahega tab hidden class remove karega.
-*/
 
 .hidden {
 
     display: none;
 }
 
-/*
-==================================
-SPINNER ANIMATION
-==================================
-
-0 degree se 360 degree tak
-continuous rotation.
-
-1 second me 1 full rotation.
-*/
-
 @keyframes spin {
 
-    0% {
+    from {
 
-        transform: rotate(0deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
     }
 
-    100% {
+    to {
 
-        transform: rotate(360deg);
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
     }
-}
-
-/*
-==================================
-DARK MODE THEME
-==================================
-
-Jab body ke andar dark-mode class
-add hogi tab ye styles apply honge.
-*/
-
-body.dark-mode {
-
-    background-color: #121212;
-
-    color: white;
-}
-
-/*
-==================================
-CARD DARK MODE
-==================================
-
-Coin card ko dark theme me
-readable banayega.
-*/
-
-body.dark-mode .card {
-
-    background-color: #1e1e1e;
-
-    color: white;
-}
-
-/*
-==================================
-SEARCH BOX DARK MODE
-==================================
-
-Search input bhi dark theme
-follow karega.
-*/
-
-body.dark-mode #search {
-
-    background-color: #2a2a2a;
-
-    color: white;
-
-    border: 1px solid #444;
-}
-
-/*
-==================================
-BUTTON DARK MODE
-==================================
-
-Toggle button aur future buttons
-dark mode me better dikhenge.
-*/
-
-body.dark-mode button {
-
-    background-color: #333;
-
-    color: white;
-
-    border: 1px solid #555;
 }
