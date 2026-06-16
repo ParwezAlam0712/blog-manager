@@ -69,3 +69,35 @@ export async function fetchMarketCoins() {
 
     return response.json();
 }
+
+/*
+==================================
+ISSE KYA HOGA ?
+==================================
+
+Global crypto market data fetch karega.
+
+Use:
+
+Market Cap
+Volume
+BTC Dominance
+
+cards fill karne ke liye.
+*/
+
+export async function fetchGlobalData() {
+
+    const response = await fetch(
+        "https://api.coingecko.com/api/v3/global"
+    );
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Failed To Fetch Global Data"
+        );
+    }
+
+    return response.json();
+}

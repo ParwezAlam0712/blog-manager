@@ -3,28 +3,26 @@
 
 <head>
 
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CryptoDash Pro</title>
+  <title>CryptoDash Pro</title>
 
-    <!--
+  <!--
     Dashboard CSS
 
     Is file me pura dashboard
     design hoga.
     -->
 
-    <link rel="stylesheet"
-          href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
 
 </head>
 
 <body>
 
-    <!--
+  <!--
     ==================================
     SIDEBAR
     ==================================
@@ -38,43 +36,43 @@
     Converter
     -->
 
-    <aside class="sidebar">
+  <aside class="sidebar">
 
-        <h2>🚀 CryptoDash Pro</h2>
+    <h2>🚀 CryptoDash Pro</h2>
 
-        <nav>
+    <nav>
 
-            <ul>
+      <ul>
 
-                <li>Dashboard</li>
+        <li>Dashboard</li>
 
-                <li>Watchlist</li>
+        <li>Watchlist</li>
 
-                <li>Portfolio</li>
+        <li>Portfolio</li>
 
-                <li>Markets</li>
+        <li>Markets</li>
 
-                <li>News</li>
+        <li>News</li>
 
-                <li>Converter</li>
+        <li>Converter</li>
 
-                <li>Settings</li>
+        <li>Settings</li>
 
-            </ul>
+      </ul>
 
-        </nav>
+    </nav>
 
-    </aside>
+  </aside>
 
-    <!--
+  <!--
     ==================================
     MAIN CONTENT
     ==================================
     -->
 
-    <main class="main-content">
+  <main class="main-content">
 
-        <!--
+    <!--
         TOP NAVBAR
 
         Search
@@ -82,61 +80,81 @@
         Notifications
         -->
 
-        <header class="topbar">
+    <header class="topbar">
 
-            <input
-                type="text"
-                id="search"
-                placeholder="Search Bitcoin, Ethereum..." />
+      <input type="text" id="search" placeholder="Search Bitcoin, Ethereum..." />
 
-            <button id="themeToggle">
+      <button id="themeToggle">
 
-                🌙 Dark Mode
+        🌙 Dark Mode
 
-            </button>
+      </button>
 
-        </header>
+    </header>
 
-        <!--
-        ==================================
-        STATS CARDS
-        ==================================
+    <!--
+==================================
+LIVE MARKET STATS
+==================================
 
-        Future:
-        Market Cap
-        Volume
-        BTC Dominance
-        -->
+ISSE KYA HOGA ?
 
-        <section class="stats">
+Future me API se live
+market data yahin show hoga.
+-->
 
-            <div class="stat-card">
+    <section class="stats">
 
-                Market Cap
+      <div class="stat-card">
 
-            </div>
+        <h4>Market Cap</h4>
 
-            <div class="stat-card">
+        <p id="marketCap">
 
-                24h Volume
+          Loading...
 
-            </div>
+        </p>
 
-            <div class="stat-card">
+      </div>
 
-                BTC Dominance
+      <div class="stat-card">
 
-            </div>
+        <h4>24h Volume</h4>
 
-            <div class="stat-card">
+        <p id="volume">
 
-                Fear & Greed
+          Loading...
 
-            </div>
+        </p>
 
-        </section>
+      </div>
 
-        <!--
+      <div class="stat-card">
+
+        <h4>BTC Dominance</h4>
+
+        <p id="btcDominance">
+
+          Loading...
+
+        </p>
+
+      </div>
+
+      <div class="stat-card">
+
+        <h4>Fear & Greed</h4>
+
+        <p id="fearGreed">
+
+          Loading...
+
+        </p>
+
+      </div>
+
+    </section>
+    <!--
         ==================================
         MAIN CHART SECTION
         ==================================
@@ -145,26 +163,26 @@
         yahan render hoga.
         -->
 
-        <section class="chart-section">
+    <section class="chart-section">
 
-            <canvas id="priceChart"></canvas>
+      <canvas id="priceChart"></canvas>
 
-        </section>
+    </section>
 
-        <!--
+    <!--
         Coin Details
 
         Search result
         yahan aayega.
         -->
 
-        <section id="results">
+    <section id="results">
 
-        </section>
+    </section>
 
-    </main>
+  </main>
 
-    <!--
+  <!--
     ==================================
     RIGHT PANEL
     ==================================
@@ -175,40 +193,37 @@
     Converter
     -->
 
-    <aside class="right-panel">
+  <aside class="right-panel">
 
-        <h3>🔥 Watchlist</h3>
+    <h3>🔥 Watchlist</h3>
 
-        <ul id="favList"></ul>
+    <ul id="favList"></ul>
 
-        <h3>📈 Top Movers</h3>
+    <h3>📈 Top Movers</h3>
 
-        <ul id="gainersList"></ul>
+    <ul id="gainersList"></ul>
 
-        <ul id="losersList"></ul>
+    <ul id="losersList"></ul>
 
-    </aside>
+  </aside>
 
-    <!--
+  <!--
     Loader
 
     API loading spinner
     -->
 
-    <div id="loader"
-         class="loader hidden">
+  <div id="loader" class="loader hidden">
 
-    </div>
+  </div>
 
-    <!--
+  <!--
     Dashboard Logic
     -->
 
-    <script
-        type="module"
-        src="../js/dashboard.js">
+  <script type="module" src="../js/dashboard.js">
 
-    </script>
+  </script>
 
 </body>
 
