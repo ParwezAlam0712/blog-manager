@@ -33,6 +33,7 @@ const themeToggle = document.getElementById("themeToggle");
 const searchResults = document.getElementById("searchResults");
 
 let chart;
+let portfolioChart;
 
 /*
 ==================================
@@ -155,7 +156,7 @@ async function loadCoin(coin = "bitcoin") {
 
         renderCoin(data);
 
-        await renderChart(coin);
+        //  await renderChart(coin);
 
     } catch (error) {
 
@@ -365,6 +366,11 @@ async function calculatePortfolioValue() {
         portfolioValue.textContent =
             `Total Value: $${total.toLocaleString()}`;
 
+        renderPortfolioChart(
+            btcQty,
+            ethQty
+        );
+
     } catch (error) {
 
         console.error(
@@ -375,7 +381,7 @@ async function calculatePortfolioValue() {
 }
 
 
-
+/*
 async function renderChart(coin) {
 
     const history =
@@ -533,7 +539,8 @@ LOAD DASHBOARD DATA
 
 //renderMarketWidgets();
 
-renderMarketStats(); 
+renderMarketStats();
+loadTradingView();
 /*
 ==================================
 DARK MODE TOGGLE + SAVE
@@ -621,3 +628,80 @@ savePortfolioBtn.addEventListener(
         );
     }
 );
+
+function renderPortfolioChart(btcQty, ethQty) {
+
+    const ctx =
+        document
+            .getElementById("portfolioChart")
+            .getContext("2d");
+
+    if (portfolioChart) {
+        portfolioChart.destroy();
+    }
+
+    portfolioChart = new Chart(ctx, {
+
+        type: "doughnut",
+
+        data: {
+
+            labels: [
+                "Bitcoin",
+                "Ethereum"
+            ],
+
+            datasets: [{
+                data: [
+                    btcQty,
+                    ethQty
+                ],
+
+                backgroundColor: [
+                    "#36A2EB",
+                    "#FF6384"
+                ]
+            }]
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            plugins: {
+
+                legend: {
+
+                    position: "top"
+                }
+            }
+        }
+    });
+}
+
+function loadTradingView() {
+
+    new TradingView.widget({
+
+        width: "100%",
+        height: 720,
+
+        symbol: "BINANCE:BTCUSDT",
+
+        interval: "60",
+
+        timezone: "Etc/UTC",
+
+        theme: "dark",
+
+        style: "1",
+
+        locale: "en",
+
+        container_id: "tradingview_chart"
+
+    });
+
+}

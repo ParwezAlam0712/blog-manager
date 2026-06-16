@@ -395,3 +395,11 @@ Portfolio card styling.
 
     font-weight: bold;
 }
+
+.portfolio-box canvas{
+    width: 100% !important;
+    max-width: 250px;
+    height: 250px !important;
+    margin: 20px auto;
+    display: block;
+}
