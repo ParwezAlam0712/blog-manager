@@ -412,3 +412,27 @@ Portfolio card styling.
     background:#1b2940;
     border-radius:8px;
 }
+
+.top-coin{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px;
+    margin:10px 0;
+
+    background:#1b2940;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.top-coin:hover{
+    transform:translateY(-2px);
+}
+
+.top-coin strong{
+    color:#4db8ff;
+}

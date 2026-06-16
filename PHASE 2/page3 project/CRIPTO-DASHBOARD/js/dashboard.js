@@ -217,21 +217,48 @@ async function renderTopCoins() {
     const coins =
         await fetchMarketCoins();
 
+        console.log(coins);
+
     topCoins.innerHTML =
         coins
             .slice(0, 5)
             .map(
                 coin => `
-            <div class="top-coin">
+            <div class="top-coin"
+                 data-coin="${coin.id}">
 
-                <span>${coin.name}</span>
+                <div>
+                    <strong>
+                        ${coin.symbol.toUpperCase()}
+                    </strong>
+                </div>
 
-                <span>$${coin.current_price}</span>
+                <div>
+                    $${coin.current_price}
+                </div>
 
             </div>
         `
             )
             .join("");
+
+    document
+        .querySelectorAll(".top-coin")
+        .forEach(card => {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    loadCoin(
+                        card.dataset.coin
+                    );
+
+                }
+            );
+
+        });
+
 }
 
 async function renderMarketMovers() {
@@ -288,7 +315,10 @@ LIVE MARKET STATS
 
 Market overview cards fill karega.
 */
-
+fearGreed.textContent = "72";
+marketCap.textContent = "$2 Trillion";
+volume.textContent = "$85 Billion";
+btcDominance.textContent = "56.40%";
 async function renderMarketStats() {
 
     console.log("Market Stats Running");
@@ -612,7 +642,7 @@ LOAD DASHBOARD DATA
 
 //renderMarketWidgets();
 
-renderMarketStats();
+//renderMarketStats();
 loadTradingView();
 renderTopCoins();
 renderMarketMovers();
