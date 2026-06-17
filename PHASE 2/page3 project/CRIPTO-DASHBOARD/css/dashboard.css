@@ -53,14 +53,14 @@ Left navigation panel banega.
 */
 
 .sidebar {
-
     width: 250px;
+    background: #0b132b;
+    padding: 20px;
 
-    background: #111827;
-
-    padding: 25px;
-
-    border-right: 1px solid #1f2937;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -576,4 +576,26 @@ Portfolio card styling.
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.news-card {
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: #16213e;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+.sidebar li {
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
 }

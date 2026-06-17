@@ -681,6 +681,7 @@ async function renderMarketWidgets() {
 */
 loadCoin();
 renderFavorites();
+renderNews();
 
 /*
 ==================================
@@ -1063,3 +1064,25 @@ async function checkAlerts() {
   }
 }
 checkAlerts();
+
+function renderNews() {
+
+    const newsContainer =
+        document.getElementById("newsContainer");
+
+    if (!newsContainer) return;
+
+    newsContainer.innerHTML = `
+        <div class="news-card">
+            Bitcoin crosses major resistance
+        </div>
+
+        <div class="news-card">
+            Ethereum ETF demand rising
+        </div>
+
+        <div class="news-card">
+            Altcoins showing strength
+        </div>
+    `;
+}
