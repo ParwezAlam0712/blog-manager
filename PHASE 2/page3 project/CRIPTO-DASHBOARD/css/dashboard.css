@@ -633,75 +633,53 @@ html {
     background: #111827;
 }
 
-/* Mobile Responsive */
-
 @media (max-width: 768px) {
 
-  .main-layout {
-    display: flex !important;
-    flex-direction: column !important;
-  }
+    body {
+        display: block !important;
+        height: auto !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
 
-  .sidebar,
-  .main-content,
-  .right-panel {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+    .sidebar {
+        display: none !important;
+    }
 
-  .sidebar,
-  .right-panel {
-    position: relative !important;
-    height: auto !important;
-  }
+    .main-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 15px !important;
+    }
 
-  .stats {
-    grid-template-columns: 1fr !important;
-  }
+    .right-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+        height: auto !important;
+        border-left: none !important;
+        padding: 15px !important;
+    }
 
-  .topbar {
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
+    .stats {
+        grid-template-columns: 1fr !important;
+    }
 
-  .search-box,
-  .search-container,
-  input,
-  button {
-    width: 100% !important;
-  }
+    .topbar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
 
-  body {
-    overflow-x: hidden !important;
-  }
-}
+    .topbar input,
+    .topbar button {
+        width: 100% !important;
+    }
 
-/* ===== MOBILE RESPONSIVE FIX ===== */
-
-@media (max-width: 768px) {
-
-  .sidebar {
-    display: none !important;
-  }
-
-  .main-content {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .right-panel {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: relative !important;
-    height: auto !important;
-    border-left: none !important;
-  }
-
-  .stats {
-    grid-template-columns: 1fr !important;
-  }
-
-  body {
-    overflow-x: hidden !important;
-  }
+    #tradingview_chart,
+    .chart-section {
+        width: 100% !important;
+        overflow-x: auto !important;
+    }
 }
