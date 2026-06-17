@@ -632,3 +632,46 @@ html {
 .dark-mode .right-panel {
     background: #111827;
 }
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+
+  .main-layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .sidebar,
+  .main-content,
+  .right-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .sidebar,
+  .right-panel {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  .stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .topbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .search-box,
+  .search-container,
+  input,
+  button {
+    width: 100% !important;
+  }
+
+  body {
+    overflow-x: hidden !important;
+  }
+}
