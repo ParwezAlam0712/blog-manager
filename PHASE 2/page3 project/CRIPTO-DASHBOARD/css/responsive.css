@@ -1,0 +1,29 @@
+@media(max-width:768px){
+
+  .sidebar{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:block;
+    margin:10px;
+  }
+
+  .main-content{
+    margin-left:0;
+  }
+
+  .header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .header-actions{
+    width:100%;
+  }
+
+  .header-actions button{
+    flex:1;
+  }
+
+}
