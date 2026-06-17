@@ -680,49 +680,28 @@ html {
 
 @media (max-width: 768px) {
 
-  body {
-    display: flex !important;
-    flex-direction: column !important;
-    overflow-x: hidden !important;
+  .sidebar {
+    display: none !important;
   }
 
-  .sidebar,
-  .main-content,
+  .main-content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
   .right-panel {
     width: 100% !important;
     max-width: 100% !important;
-    height: auto !important;
     position: relative !important;
-  }
-
-  .sidebar {
-    padding: 15px !important;
-  }
-
-  .right-panel {
+    height: auto !important;
     border-left: none !important;
   }
 
   .stats {
-    display: grid !important;
     grid-template-columns: 1fr !important;
   }
 
-  .topbar {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-  }
-
-  .search-box,
-  .search-container,
-  input,
-  button {
-    width: 100% !important;
-  }
-
-  iframe {
-    width: 100% !important;
-    max-width: 100% !important;
+  body {
+    overflow-x: hidden !important;
   }
 }
