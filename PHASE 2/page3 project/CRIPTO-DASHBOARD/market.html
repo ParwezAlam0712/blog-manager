@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Markets - CryptoDash Pro</title>
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/responsive.css">
-
 </head>
 
 <body>
 
   <header class="header">
 
-    <div class="logo">
+    <button class="menu-toggle">
+      ☰
+    </button>
+
+    <h1 class="logo">
       🚀 CryptoDash Pro
-    </div>
+    </h1>
 
     <div class="header-actions">
 
@@ -38,83 +38,32 @@
 
   </header>
 
-  <button class="menu-toggle">
-    ☰
-  </button>
+  <div class="page-layout">
 
-  <aside class="sidebar">
+    <aside class="sidebar">
 
-    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="market.html">Markets</a>
+      <a href="news.html">News</a>
 
-      <ul>
+    </aside>
 
-        <li><a href="index.html">Dashboard</a></li>
+    <main class="main-content">
 
-        <li><a href="watchlist.html">Watchlist</a></li>
+      <h2>Crypto Markets</h2>
 
-        <li><a href="portfolio.html">Portfolio</a></li>
+      <div id="marketContainer"></div>
 
-        <li><a href="market.html">Markets</a></li>
+    </main>
 
-        <li><a href="news.html">News</a></li>
+  </div>
 
-      </ul>
-
-    </nav>
-
-  </aside>
-
-  <main class="main-content">
-
-    <h1>📈 Markets</h1>
-
-    <section class="market-section">
-
-      <div class="market-card">
-
-        <h2>🪙 Top Coins</h2>
-
-        <ul id="topCoins">
-
-          <li>Bitcoin</li>
-          <li>Ethereum</li>
-          <li>Solana</li>
-          <li>BNB</li>
-          <li>XRP</li>
-
-        </ul>
-
-      </div>
-
-      <div class="market-card">
-
-        <h2>🚀 Top Movers</h2>
-
-        <ul id="topMovers">
-
-          <li>PEPE +15%</li>
-          <li>DOGE +12%</li>
-          <li>WIF +10%</li>
-
-        </ul>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer class="footer">
-
-    <p>© 2026 CryptoDash Pro</p>
-
-    <p>Built by Parwez Alam</p>
-
-  </footer>
-
-  <script src="js/market.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/market.js"></script>
 
 </body>
 

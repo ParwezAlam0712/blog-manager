@@ -321,16 +321,37 @@ button {
     border-radius: 12px;
 }
 
-.card button{
-    background:#ef4444;
-    color:white;
-    border:none;
-    padding:8px 12px;
-    border-radius:8px;
-    cursor:pointer;
-    margin-top:10px;
+.card button {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.card button:hover{
-    opacity:0.9;
+.card button:hover {
+    opacity: 0.9;
+}
+
+#marketContainer {
+    display: grid;
+    gap: 15px;
+}
+
+#marketContainer .card {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.green {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.red {
+    color: #ef4444;
+    font-weight: bold;
 }
