@@ -2,6 +2,16 @@
 
     .sidebar {
         display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        display: block;
     }
 
     .menu-toggle {
@@ -25,7 +35,6 @@
     .header-actions button {
         flex: 1;
     }
-
 }
 
 .stats {
