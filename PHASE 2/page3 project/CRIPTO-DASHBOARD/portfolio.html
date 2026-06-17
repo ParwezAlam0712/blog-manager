@@ -14,12 +14,15 @@
 
 <body>
 
-  <!-- Header -->
   <header class="header">
 
-    <div class="logo">
+    <button class="menu-toggle">
+      ☰
+    </button>
+
+    <h1 class="logo">
       🚀 CryptoDash Pro
-    </div>
+    </h1>
 
     <div class="header-actions">
 
@@ -35,77 +38,47 @@
 
   </header>
 
-  <!-- Mobile Menu -->
-  <button class="menu-toggle">
-    ☰
-  </button>
+  <div class="page-layout">
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
+    <aside class="sidebar">
 
-    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="market.html">Markets</a>
+      <a href="news.html">News</a>
 
-      <ul>
+    </aside>
 
-        <li><a href="index.html">Dashboard</a></li>
+    <main class="main-content">
 
-        <li><a href="watchlist.html">Watchlist</a></li>
+      <h2>My Portfolio</h2>
 
-        <li><a href="portfolio.html">Portfolio</a></li>
+      <div class="portfolio-form">
 
-        <li><a href="market.html">Markets</a></li>
+        <input type="text" id="coinName" placeholder="Coin Name">
 
-        <li><a href="news.html">News</a></li>
+        <input type="number" id="coinAmount" placeholder="Amount">
 
-      </ul>
-
-    </nav>
-
-  </aside>
-
-  <!-- Main Content -->
-  <main class="main-content">
-
-    <h1>💼 Portfolio</h1>
-
-    <section class="portfolio-section">
-
-      <input type="number" id="btcQty" placeholder="BTC Quantity">
-
-      <input type="number" id="ethQty" placeholder="ETH Quantity">
-
-      <div class="portfolio-buttons">
-
-        <button id="savePortfolio">
-          Save Portfolio
-        </button>
-
-        <button id="resetPortfolio">
-          Reset Portfolio
+        <button id="addPortfolioBtn">
+          Add Coin
         </button>
 
       </div>
-
-      <h3 id="portfolioValue">
-        Total Value: $0
-      </h3>
-
-      <div class="chart-placeholder">
-        Portfolio Chart
+      <div class="card">
+        <h3>Total Holdings</h3>
+        <p id="totalHoldings">$0</p>
       </div>
+      <div id="portfolioContainer"></div>
 
-    </section>
+    </main>
 
-  </main>
+  </div>
 
-  <footer class="footer">
-    <p>© 2026 CryptoDash Pro</p>
-    <p>Built by Parwez Alam</p>
-  </footer>
-
-  <script src="js/portfolio.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/portfolio.js"></script>
 
 </body>
 

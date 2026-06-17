@@ -278,3 +278,59 @@ button {
     margin: 15px 0;
     font-size: 18px;
 }
+
+/* =========================
+   PORTFOLIO FORM
+========================= */
+
+.portfolio-form {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.portfolio-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1e293b;
+    color: white;
+}
+
+.portfolio-form button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#portfolioContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#portfolioContainer .card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card button{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.card button:hover{
+    opacity:0.9;
+}

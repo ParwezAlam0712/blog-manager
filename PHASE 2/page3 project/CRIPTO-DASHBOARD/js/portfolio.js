@@ -1,41 +1,103 @@
-const btcQty =
-    document.getElementById("btcQty");
 
-const ethQty =
-    document.getElementById("ethQty");
+const coinName =
+    document.getElementById("coinName");
 
-const saveBtn =
-    document.getElementById("savePortfolio");
+const coinAmount =
+    document.getElementById("coinAmount");
 
-const resetBtn =
-    document.getElementById("resetPortfolio");
+const addPortfolioBtn =
+    document.getElementById("addPortfolioBtn");
 
-const portfolioValue =
-    document.getElementById("portfolioValue");
+const portfolioContainer =
+    document.getElementById("portfolioContainer");
 
-saveBtn.addEventListener("click", () => {
+let portfolio =
+    JSON.parse(
+        localStorage.getItem("portfolio")
+    ) || [];
 
-    const btc =
-        Number(btcQty.value) || 0;
+console.log(portfolio);
+console.log(typeof portfolio);
 
-    const eth =
-        Number(ethQty.value) || 0;
+function savePortfolio() {
 
-    const total =
-        (btc * 65000) +
-        (eth * 1800);
+    localStorage.setItem(
+        "portfolio",
+        JSON.stringify(portfolio)
+    );
 
-    portfolioValue.textContent =
-        `Total Value: $${total}`;
+}
+
+function renderPortfolio() {
+
+
+    let total = 0;
+
+    portfolioContainer.innerHTML = "";
+
+    portfolio.forEach((coin, index) => {
+
+        total += Number(coin.amount);
+
+        portfolioContainer.innerHTML += `
+            <div class="card">
+
+                <h3>${coin.name}</h3>
+
+                <p>
+                    Amount: ${coin.amount}
+                </p>
+
+                <button onclick="deleteCoin(${index})">
+                    Delete
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    document.getElementById("totalHoldings")
+    .textContent = total;
+
+}
+
+function deleteCoin(index) {
+
+    portfolio.splice(index, 1);
+
+    savePortfolio();
+
+    renderPortfolio();
+
+}
+
+addPortfolioBtn.addEventListener("click", () => {
+
+    let total = 0;
+
+    console.log("Button Clicked");
+
+    if (
+        !coinName.value ||
+        !coinAmount.value
+    ) {
+        alert("Input Empty");
+        return;
+    }
+
+    portfolio.push({
+        name: coinName.value,
+        amount: coinAmount.value
+    });
+
+    console.log(portfolio);
+
+    savePortfolio();
+    renderPortfolio();
+
+    coinName.value = "";
+    coinAmount.value = "";
 
 });
-
-resetBtn.addEventListener("click", () => {
-
-    btcQty.value = "";
-    ethQty.value = "";
-
-    portfolioValue.textContent =
-        "Total Value: $0";
-
-});
+renderPortfolio();

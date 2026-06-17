@@ -85,3 +85,11 @@
     }
 
 }
+
+@media(max-width:768px){
+
+    .portfolio-form{
+        flex-direction:column;
+    }
+
+}
