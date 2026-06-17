@@ -1,22 +1,33 @@
-const coinInput = document.getElementById("coinInput");
-const addCoinBtn = document.getElementById("addCoinBtn");
-const watchlist = document.getElementById("watchlist");
 
-addCoinBtn.addEventListener("click", () => {
+const container =
+    document.getElementById("watchlistContainer");
 
-    const coin = coinInput.value.trim();
+async function loadWatchlist() {
 
-    if (!coin) {
-        alert("Enter coin name");
-        return;
+    const watchlist =
+        JSON.parse(
+            localStorage.getItem("watchlist")
+        ) || [];
+
+    container.innerHTML = "";
+
+    for (const coinId of watchlist) {
+
+        const response = await fetch(
+            `https://api.coingecko.com/api/v3/coins/${coinId}`
+        );
+
+        const coin = await response.json();
+
+        container.innerHTML += `
+            <div class="card">
+                <h3>${coin.name}</h3>
+                <p>
+                    $${coin.market_data.current_price.usd}
+                </p>
+            </div>
+        `;
     }
+}
 
-    const li = document.createElement("li");
-
-    li.textContent = coin;
-
-    watchlist.appendChild(li);
-
-    coinInput.value = "";
-
-});
+loadWatchlist();

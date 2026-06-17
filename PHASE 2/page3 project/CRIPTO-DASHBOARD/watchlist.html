@@ -4,28 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CryptoDash Pro</title>
+  <title>Document</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
 
-  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>CryptoDash Pro</h1>
+  <header class="header">
+
+    <button class="menu-toggle">
+      ☰
+    </button>
+
+    <h1 class="logo">
+      🚀 CryptoDash Pro
+    </h1>
+
+    <div class="header-actions">
+
+      <button id="themeToggle">
+        🌙 Dark Mode
+      </button>
+
+      <button id="notificationBtn">
+        🔔 Notifications
+      </button>
+
+    </div>
+
   </header>
 
-  <main>
-    <h2>Page Name Here</h2>
-  </main>
+  <div class="page-layout">
 
-  <footer class="footer">
-    <p>© 2026 CryptoDash Pro</p>
-    <p>Built by Parwez Alam</p>
-  </footer>
+    <aside class="sidebar">
+
+      <a href="index.html">Dashboard</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="market.html">Markets</a>
+      <a href="news.html">News</a>
+
+    </aside>
+
+    <main class="main-content">
+
+      <h2>My Watchlist</h2>
+
+      <div id="watchlistContainer"></div>
+
+    </main>
+
+  </div>
 
   <script src="js/menu.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/notification.js"></script>
+  <script src="js/watchlist.js"></script>
+
 </body>
 
 </html>

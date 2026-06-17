@@ -258,3 +258,15 @@ button {
     padding: 10px 0;
     border-bottom: 1px solid #334155;
 }
+
+#searchResults {
+    margin-top: 10px;
+}
+
+.search-item {
+    background: #1e293b;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}

@@ -62,3 +62,101 @@ async function loadFearGreed() {
 
 loadFearGreed();
 loadGlobalData();
+
+const searchInput =
+    document.getElementById("search");
+
+const searchResults =
+    document.getElementById("searchResults");
+
+searchInput?.addEventListener("input", async () => {
+
+    const query = searchInput.value.trim();
+
+    if (query.length < 2) {
+
+        searchResults.innerHTML = "";
+
+        return;
+    }
+
+    const response = await fetch(
+        `https://api.coingecko.com/api/v3/search?query=${query}`
+    );
+
+    const data = await response.json();
+
+    searchResults.innerHTML = data.coins
+        .slice(0, 5)
+        .map(
+            coin => `
+    <div
+        class="search-item"
+        onclick="addToWatchlist('${coin.id}')"
+    >
+        ${coin.name} (${coin.symbol})
+    </div>
+`
+        )
+        .join("");
+
+});
+
+function addToWatchlist(coinId) {
+
+    let watchlist =
+        JSON.parse(
+            localStorage.getItem("watchlist")
+        ) || [];
+
+    if (!watchlist.includes(coinId)) {
+
+        watchlist.push(coinId);
+
+        localStorage.setItem(
+            "watchlist",
+            JSON.stringify(watchlist)
+        );
+
+        alert("Added to Watchlist");
+    }
+}
+
+function addToWatchlist(coinId) {
+
+    let watchlist =
+        JSON.parse(
+            localStorage.getItem("watchlist")
+        ) || [];
+
+    if (!watchlist.includes(coinId)) {
+
+        watchlist.push(coinId);
+
+        localStorage.setItem(
+            "watchlist",
+            JSON.stringify(watchlist)
+        );
+
+        alert("Added to Watchlist");
+    }
+}
+
+async function loadGlobalData() {
+
+    try {
+
+        const response = await fetch(
+            "https://api.coingecko.com/api/v3/global"
+        );
+
+        const data = await response.json();
+
+        // tumhara existing code
+
+    } catch (error) {
+
+        console.log("API Limit Reached");
+
+    }
+}
