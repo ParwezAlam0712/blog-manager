@@ -63,5 +63,16 @@
     .portfolio-buttons {
         flex-direction: column;
     }
+}
+
+/* =========================
+   MARKETS MOBILE
+========================= */
+
+@media(max-width:768px) {
+
+    .market-section {
+        grid-template-columns: 1fr;
+    }
 
 }

@@ -1,27 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CryptoDash Pro</title>
 
-  <link rel="stylesheet" href="css/dashboard.css">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Markets - CryptoDash Pro</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
 </head>
 
 <body>
 
-  <header>
-    <h1>CryptoDash Pro</h1>
+  <header class="header">
+
+    <div class="logo">
+      🚀 CryptoDash Pro
+    </div>
+
+    <div class="header-actions">
+
+      <button id="themeToggle">
+        🌙 Dark Mode
+      </button>
+
+      <button id="notificationBtn">
+        🔔 Notifications
+      </button>
+
+    </div>
+
   </header>
 
-  <main>
-    <h2>Page Name Here</h2>
+  <button class="menu-toggle">
+    ☰
+  </button>
+
+  <aside class="sidebar">
+
+    <nav>
+
+      <ul>
+
+        <li><a href="index.html">Dashboard</a></li>
+
+        <li><a href="watchlist.html">Watchlist</a></li>
+
+        <li><a href="portfolio.html">Portfolio</a></li>
+
+        <li><a href="market.html">Markets</a></li>
+
+        <li><a href="news.html">News</a></li>
+
+      </ul>
+
+    </nav>
+
+  </aside>
+
+  <main class="main-content">
+
+    <h1>📈 Markets</h1>
+
+    <section class="market-section">
+
+      <div class="market-card">
+
+        <h2>🪙 Top Coins</h2>
+
+        <ul id="topCoins">
+
+          <li>Bitcoin</li>
+          <li>Ethereum</li>
+          <li>Solana</li>
+          <li>BNB</li>
+          <li>XRP</li>
+
+        </ul>
+
+      </div>
+
+      <div class="market-card">
+
+        <h2>🚀 Top Movers</h2>
+
+        <ul id="topMovers">
+
+          <li>PEPE +15%</li>
+          <li>DOGE +12%</li>
+          <li>WIF +10%</li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
   </main>
 
   <footer class="footer">
+
     <p>© 2026 CryptoDash Pro</p>
+
     <p>Built by Parwez Alam</p>
+
   </footer>
 
+  <script src="js/market.js"></script>
+
 </body>
+
 </html>
